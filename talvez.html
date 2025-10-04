@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talvez? 🤔</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #e8f4ff 0%, #d6e9ff 50%, #c4deff 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #4a5a6a;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 40px 30px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(100, 150, 255, 0.3);
+            text-align: center;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #5a7aa0;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(100, 150, 255, 0.2);
+        }
+
+        .emoji {
+            font-size: 3em;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: rotate 2s infinite;
+        }
+
+        @keyframes rotate {
+            0%, 100% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
+        }
+
+        .message {
+            font-size: 1.05em;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: #5a6a7a;
+        }
+
+        .reveal-button {
+            background: linear-gradient(135deg, #6b9dff 0%, #8fb3ff 100%);
+            color: white;
+            padding: 18px 35px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Georgia', serif;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 25px 0;
+        }
+
+        .reveal-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(107, 157, 255, 0.4);
+        }
+
+        .conclusion-box {
+            display: none;
+            background: #f0f8ff;
+            border: 3px solid #6b9dff;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 25px 0;
+            color: #4a5a6a;
+            font-size: 1.05em;
+            line-height: 1.8;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .conclusion-box.show {
+            display: block;
+        }
+
+        .final-message {
+            font-size: 1.05em;
+            line-height: 1.8;
+            margin: 25px 0;
+            color: #5a6a7a;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #c4deff 0%, #a8c8ff 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 25px 0;
+            border: 3px dashed #6b9dff;
+            color: #5a7aa0;
+            font-size: 0.9em;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .back-button {
+            background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
+            color: white;
+            padding: 18px 35px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Georgia', serif;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 25px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 157, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji">🤔</div>
+        <h1>Estás na dúvida então?</h1>
+        
+        <div class="message">
+            Eu sei que estás chateada...não gosto de saber que estás assim e que eu fui a causa. Mas gostava muito de voltar a ouvir a tua voz alegre e todas as tuas palavras e histórias fofinhas. Sinto mesmo falta. O outro dia estavas a falar sobre a tua voz para saber se ela era doce ou não e acho que cheguei a uma conclusão:
+        </div>
+
+        <button class="reveal-button" onclick="revelarConclusao()">
+            Clicar para saber a conclusão 💭
+        </button>
+
+        <div class="conclusion-box" id="conclusionBox">
+            <strong>Vamos usar o nosso raciocínio filosófico...</strong><br><br>
+            Se eu gosto de coisas doces e sinto falta delas quando não as tenho, e eu sinto falta da tua voz quando não a tenho, logo a tua voz é doce. 🍯✨
+        </div>
+
+        <div class="final-message">
+            Já repensaste se vais aceitar ou não? Eu prometo que te dou imensos hambúrgueres!!!!
+        </div>
+
+        <img src="burger.png" style="width:100%; height:100%; object-fit:cover; border-radius:20px;">
+
+        <a href="index.html" class="back-button">
+            Voltar atrás e escolher sim 💕
+        </a>
+    </div>
+
+    <script>
+        function revelarConclusao() {
+            const conclusionBox = document.getElementById('conclusionBox');
+            conclusionBox.classList.add('show');
+        }
+    </script>
+</body>
+</html>
